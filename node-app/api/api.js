@@ -1,7 +1,7 @@
 /**
  * third party libraries
  */
-require('dotenv').config({path:__dirname+'/./../.env'})
+require('dotenv').config({ path: `${__dirname}/./../.env` });
 const bodyParser = require('body-parser');
 const express = require('express');
 const helmet = require('helmet');

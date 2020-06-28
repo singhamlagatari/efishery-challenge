@@ -5,21 +5,28 @@ const sequelize = require('../../config/database');
 
 const hooks = {
   beforeCreate(user) {
-    user.password = bcryptService().password(user); // eslint-disable-line no-param-reassign
+    // eslint-disable-next-line max-len
+    user.password = bcryptService().password(user.password); // eslint-disable-line no-param-reassign
   },
 };
 
 const tableName = 'users';
 
 const User = sequelize.define('User', {
-  email: {
+  name: {
+    type: Sequelize.STRING,
+  },
+  phone: {
     type: Sequelize.STRING,
     unique: true,
+  },
+  role: {
+    type: Sequelize.STRING,
   },
   password: {
     type: Sequelize.STRING,
   },
-}, { hooks, tableName });
+}, { hooks, tableName, underscored: true });
 
 // eslint-disable-next-line
 User.prototype.toJSON = function () {

@@ -22,8 +22,6 @@ const production = {
   dialect: 'postgres',
 };
 
-console.log(production)
-
 module.exports = {
   development,
   testing,
